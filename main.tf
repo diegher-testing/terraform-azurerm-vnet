@@ -9,6 +9,12 @@ terraform {
   required_version = ">= 1.3.9"
 }
 
+provider "azurerm" {
+  use_oidc            = true
+  storage_use_azuread = true
+  features {}
+}
+
 resource "azurerm_resource_group" "example" {
   name     = "${var.prefix}-resources"
   location = var.location
